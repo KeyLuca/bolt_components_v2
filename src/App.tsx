@@ -24,11 +24,33 @@ import {
   ProgressBar,
 } from './components/LoadingStates';
 import { ImageGallery, BeforeAfterSlider, VideoPlayer } from './components/MediaComponents';
+import { Hero } from './components/Hero';
+import { Banner } from './components/Banner';
+import { Modal } from './components/Modal';
+import { Drawer } from './components/Drawer';
+import { Toast } from './components/Toast';
+import { AccordionSection } from './components/AccordionSection';
+import { FormSection } from './components/FormSection';
+import { ItemList } from './components/ItemList';
+import { SortableTable } from './components/SortableTable';
+import { PricingCards } from './components/PricingCards';
+import { TabSection } from './components/TabSection';
+import { StandortSection } from './components/StandortSection';
+import { SearchAndFilters } from './components/SearchAndFilters';
+import { TableOfContents } from './components/TableOfContents';
+import { TextAnimations } from './components/TextAnimations';
+import { KPISection } from './components/KPISection';
+import { KeyValueSection } from './components/KeyValueSection';
+import { MapSection } from './components/MapSection';
+import { MediaSplit } from './components/MediaSplit';
 
 const App: React.FC = () => {
   const [formState, setFormState] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [showLoadingDemo, setShowLoadingDemo] = useState<'skeleton' | 'empty' | 'error' | 'offline' | null>(null);
   const { isOpen: commandPaletteOpen, close: closeCommandPalette } = useCommandPalette();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -96,7 +118,8 @@ const App: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-blue-50">
+      <Banner message="Welcome to our component showcase! Explore all the amazing UI components." onClose={() => {}} />
       <CommandPalette isOpen={commandPaletteOpen} onClose={closeCommandPalette} />
 
       <Section background="gradient" padding="xl">
@@ -119,7 +142,7 @@ const App: React.FC = () => {
                 Get Started
               </button>
               <Tooltip content="Press ⌘K to open">
-                <button className="px-8 py-4 bg-white text-neutral-900 rounded-lg font-semibold hover:bg-neutral-50 transition-all duration-200 border border-neutral-200 shadow-sm hover:shadow-md">
+                <button className="px-8 py-4 bg-blue-100 text-blue-900 rounded-lg font-semibold hover:bg-blue-200 transition-all duration-200 border border-blue-200 shadow-sm hover:shadow-md">
                   Try Command Palette
                 </button>
               </Tooltip>
@@ -235,6 +258,25 @@ const App: React.FC = () => {
         </Container>
       </Section>
 
+      <Section padding="lg">
+        <Container>
+          <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">Pricing & Features</h2>
+          <PricingCards />
+        </Container>
+      </Section>
+
+      <Section padding="lg">
+        <Container>
+          <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">Tabs & Accordions</h2>
+          <div className="space-y-12">
+            <TabSection />
+            <AccordionSection />
+          </div>
+        </Container>
+      </Section>
+
+      <StandortSection />
+
       <Section background="neutral" padding="lg">
         <Container>
           <h2 className="text-3xl font-bold text-neutral-900 mb-4 text-center">Image Gallery</h2>
@@ -242,6 +284,8 @@ const App: React.FC = () => {
           <ImageGallery images={galleryImages} />
         </Container>
       </Section>
+
+      <Hero onModalOpen={() => setIsModalOpen(true)} onDrawerOpen={() => setIsDrawerOpen(true)} />
 
       <Section padding="lg">
         <Container>
@@ -255,19 +299,19 @@ const App: React.FC = () => {
             </button>
             <button
               onClick={() => setShowLoadingDemo('empty')}
-              className="px-6 py-3 bg-neutral-600 text-white rounded-lg hover:bg-neutral-700 transition-colors font-medium"
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
             >
               Show Empty State
             </button>
             <button
               onClick={() => setShowLoadingDemo('error')}
-              className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium"
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
             >
               Show Error State
             </button>
             <button
               onClick={() => setShowLoadingDemo('offline')}
-              className="px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium"
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
             >
               Show Offline State
             </button>
@@ -358,6 +402,16 @@ const App: React.FC = () => {
 
       <Section padding="lg">
         <Container>
+          <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">Data Display Components</h2>
+          <div className="space-y-12">
+            <ItemList />
+            <SortableTable />
+          </div>
+        </Container>
+      </Section>
+
+      <Section padding="lg">
+        <Container>
           <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">Micro-Interactions</h2>
           <Grid cols={3} gap="lg">
             <Card padding="lg" className="text-center">
@@ -373,7 +427,7 @@ const App: React.FC = () => {
               <h3 className="text-lg font-semibold mb-4">Popover</h3>
               <Popover
                 trigger={
-                  <button className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                  <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
                     Click Me
                   </button>
                 }
@@ -381,7 +435,7 @@ const App: React.FC = () => {
                 <Stack spacing="sm">
                   <h4 className="font-semibold">Popover Content</h4>
                   <p className="text-sm text-neutral-600">Lorem ipsum dolor sit amet consectetur.</p>
-                  <button className="px-4 py-2 bg-green-600 text-white rounded text-sm hover:bg-green-700 transition-colors">
+                  <button className="px-4 py-2 bg-blue-600 text-white rounded text-sm hover:bg-blue-700 transition-colors">
                     Action
                   </button>
                 </Stack>
@@ -413,6 +467,33 @@ const App: React.FC = () => {
               onClick: () => console.log('Secondary action'),
             }}
           />
+        </Container>
+      </Section>
+
+      <Section padding="lg">
+        <Container>
+          <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">Analytics & Data</h2>
+          <div className="space-y-12">
+            <KPISection />
+            <KeyValueSection />
+          </div>
+        </Container>
+      </Section>
+
+      <Section padding="lg">
+        <Container>
+          <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">Search & Navigation</h2>
+          <div className="space-y-12">
+            <SearchAndFilters />
+            <TableOfContents />
+          </div>
+        </Container>
+      </Section>
+
+      <Section padding="lg">
+        <Container>
+          <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">Text Animations</h2>
+          <TextAnimations />
         </Container>
       </Section>
 
@@ -466,6 +547,40 @@ const App: React.FC = () => {
           </div>
         </Container>
       </Section>
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Welcome!"
+      >
+        <p className="text-slate-600 mb-4">
+          This is a modal dialog. You can put any content here.
+        </p>
+        <button
+          onClick={() => {
+            setIsModalOpen(false);
+            setToast({ message: 'Modal closed successfully!', type: 'success' });
+            setTimeout(() => setToast(null), 3000);
+          }}
+          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+        >
+          Close Modal
+        </button>
+      </Modal>
+
+      <Drawer
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        title="Navigation"
+      />
+
+      {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast(null)}
+        />
+      )}
     </div>
   );
 };

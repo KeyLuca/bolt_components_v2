@@ -38,8 +38,8 @@ export const Select: React.FC<SelectProps> = ({ label, options, value, onChange,
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full px-4 py-2.5 text-left bg-white border rounded-lg transition-all duration-200 flex items-center justify-between hover:border-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-          error ? 'border-red-400' : 'border-neutral-300'
+        className={`w-full px-4 py-2.5 text-left bg-blue-50 border rounded-lg transition-all duration-200 flex items-center justify-between hover:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+          error ? 'border-red-400' : 'border-blue-300'
         }`}
       >
         <span className={selected ? 'text-neutral-900' : 'text-neutral-500'}>{selectedLabel}</span>
@@ -47,14 +47,14 @@ export const Select: React.FC<SelectProps> = ({ label, options, value, onChange,
       </button>
 
       {isOpen && (
-        <div className="absolute z-50 w-full mt-2 bg-white border border-neutral-200 rounded-lg shadow-lg max-h-60 overflow-auto animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="absolute z-50 w-full mt-2 bg-blue-50 border border-blue-200 rounded-lg shadow-lg max-h-60 overflow-auto animate-in fade-in slide-in-from-top-2 duration-200">
           {options.map(option => (
             <button
               key={option.value}
               type="button"
               onClick={() => handleSelect(option.value)}
-              className={`w-full px-4 py-2.5 text-left hover:bg-neutral-50 transition-colors flex items-center justify-between ${
-                selected === option.value ? 'bg-blue-50 text-blue-700' : 'text-neutral-700'
+              className={`w-full px-4 py-2.5 text-left hover:bg-blue-100 transition-colors flex items-center justify-between ${
+                selected === option.value ? 'bg-blue-100 text-blue-700' : 'text-neutral-700'
               }`}
             >
               {option.label}
@@ -102,7 +102,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({ label, checked = false, onCh
         <div className={`w-5 h-5 border-2 rounded transition-all duration-200 flex items-center justify-center ${
           isChecked
             ? 'bg-blue-600 border-blue-600 scale-100'
-            : 'bg-white border-neutral-300 group-hover:border-blue-400'
+            : 'bg-blue-50 border-blue-300 group-hover:border-blue-400'
         }`}>
           {isChecked && <Check className="w-3.5 h-3.5 text-white animate-in zoom-in duration-150" />}
         </div>
@@ -144,8 +144,8 @@ export const Radio: React.FC<RadioProps> = ({ name, options, value, onChange }) 
             />
             <div className={`w-5 h-5 border-2 rounded-full transition-all duration-200 flex items-center justify-center ${
               selected === option.value
-                ? 'bg-white border-blue-600'
-                : 'bg-white border-neutral-300 group-hover:border-blue-400'
+                ? 'bg-blue-50 border-blue-600'
+                : 'bg-blue-50 border-blue-300 group-hover:border-blue-400'
             }`}>
               {selected === option.value && (
                 <div className="w-2.5 h-2.5 bg-blue-600 rounded-full animate-in zoom-in duration-150" />
@@ -224,8 +224,8 @@ export const DatePicker: React.FC<DatePickerProps> = ({ label, value, onChange, 
           type="date"
           value={date}
           onChange={handleChange}
-          className={`w-full px-4 py-2.5 pr-10 bg-white border rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-            error ? 'border-red-400' : 'border-neutral-300'
+          className={`w-full px-4 py-2.5 pr-10 bg-blue-50 border rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+            error ? 'border-red-400' : 'border-blue-300'
           }`}
         />
         <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-400 pointer-events-none" />
@@ -277,8 +277,8 @@ export const Input: React.FC<InputProps> = ({ label, type = 'text', placeholder,
         onChange={handleChange}
         onBlur={handleBlur}
         placeholder={placeholder}
-        className={`w-full px-4 py-2.5 bg-white border rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-          showError ? 'border-red-400' : 'border-neutral-300'
+        className={`w-full px-4 py-2.5 bg-blue-50 border rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+          showError ? 'border-red-400' : 'border-blue-300'
         }`}
       />
       {showError && (
@@ -301,7 +301,7 @@ interface FormResultProps {
 export const FormResult: React.FC<FormResultProps> = ({ type, title, message, onClose }) => {
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 animate-in fade-in duration-200">
-      <div className="bg-white rounded-xl shadow-2xl p-8 max-w-md w-full mx-4 animate-in zoom-in slide-in-from-bottom-4 duration-300">
+      <div className="bg-blue-50 rounded-xl shadow-2xl p-8 max-w-md w-full mx-4 animate-in zoom-in slide-in-from-bottom-4 duration-300">
         <div className={`w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4 ${
           type === 'success' ? 'bg-green-100' : 'bg-red-100'
         }`}>

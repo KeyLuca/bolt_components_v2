@@ -70,7 +70,7 @@ export const Popover: React.FC<PopoverProps> = ({ trigger, children, position = 
     <div className="relative inline-block" ref={ref}>
       <div onClick={() => setIsOpen(!isOpen)}>{trigger}</div>
       {isOpen && (
-        <div className={`absolute z-50 bg-white border border-neutral-200 rounded-xl shadow-xl p-4 min-w-[200px] animate-in fade-in zoom-in-95 slide-in-from-top-2 duration-200 ${positionClasses[position]}`}>
+        <div className={`absolute z-50 bg-blue-50 border border-blue-200 rounded-xl shadow-xl p-4 min-w-[200px] animate-in fade-in zoom-in-95 slide-in-from-top-2 duration-200 ${positionClasses[position]}`}>
           {children}
         </div>
       )}
@@ -121,7 +121,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-start justify-center pt-[20vh] z-50 animate-in fade-in duration-200">
-      <div className="bg-white rounded-xl shadow-2xl w-full max-w-2xl mx-4 overflow-hidden animate-in zoom-in slide-in-from-top-4 duration-300">
+      <div className="bg-blue-50 rounded-xl shadow-2xl w-full max-w-2xl mx-4 overflow-hidden animate-in zoom-in slide-in-from-top-4 duration-300">
         <div className="flex items-center border-b border-neutral-200 px-4 py-3">
           <Command className="w-5 h-5 text-neutral-400 mr-3" />
           <input
@@ -134,7 +134,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
           />
           <button
             onClick={onClose}
-            className="p-1 hover:bg-neutral-100 rounded transition-colors"
+            className="p-1 hover:bg-blue-100 rounded transition-colors"
           >
             <X className="w-5 h-5 text-neutral-400" />
           </button>
@@ -150,7 +150,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
               {filteredCommands.map((cmd, index) => (
                 <button
                   key={index}
-                  className="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-neutral-50 transition-colors group"
+                  className="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-blue-50 transition-colors group"
                 >
                   <div className="flex items-center">
                     <cmd.icon className="w-5 h-5 text-neutral-400 mr-3" />
@@ -160,7 +160,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
                     </div>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <kbd className="px-2 py-1 text-xs font-semibold text-neutral-600 bg-neutral-100 border border-neutral-300 rounded">
+                    <kbd className="px-2 py-1 text-xs font-semibold text-blue-600 bg-blue-100 border border-blue-300 rounded">
                       {cmd.shortcut}
                     </kbd>
                     <ArrowRight className="w-4 h-4 text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -174,16 +174,16 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
         <div className="border-t border-neutral-200 px-4 py-3 flex items-center justify-between text-xs text-neutral-500">
           <div className="flex items-center space-x-4">
             <span className="flex items-center">
-              <kbd className="px-2 py-1 mr-1 font-semibold bg-neutral-100 border border-neutral-300 rounded">↑↓</kbd>
+              <kbd className="px-2 py-1 mr-1 font-semibold bg-blue-100 border border-blue-300 rounded">↑↓</kbd>
               Navigate
             </span>
             <span className="flex items-center">
-              <kbd className="px-2 py-1 mr-1 font-semibold bg-neutral-100 border border-neutral-300 rounded">↵</kbd>
+              <kbd className="px-2 py-1 mr-1 font-semibold bg-blue-100 border border-blue-300 rounded">↵</kbd>
               Select
             </span>
           </div>
           <span className="flex items-center">
-            <kbd className="px-2 py-1 mr-1 font-semibold bg-neutral-100 border border-neutral-300 rounded">ESC</kbd>
+            <kbd className="px-2 py-1 mr-1 font-semibold bg-blue-100 border border-blue-300 rounded">ESC</kbd>
             Close
           </span>
         </div>

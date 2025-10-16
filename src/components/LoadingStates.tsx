@@ -22,7 +22,7 @@ export const SkeletonLoader: React.FC = () => {
 
 export const CardSkeletonLoader: React.FC = () => {
   return (
-    <div className="bg-white border border-neutral-200 rounded-xl p-6 animate-pulse">
+    <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 animate-pulse">
       <div className="w-full h-48 bg-neutral-200 rounded-lg mb-4" />
       <div className="h-6 bg-neutral-200 rounded w-3/4 mb-3" />
       <div className="space-y-2">

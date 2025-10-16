@@ -37,9 +37,9 @@ export const Section: React.FC<SectionProps> = ({
   padding = 'lg',
 }) => {
   const backgroundClasses = {
-    white: 'bg-white',
-    neutral: 'bg-neutral-50',
-    gradient: 'bg-gradient-to-br from-blue-50 via-white to-neutral-50',
+    white: 'bg-blue-50',
+    neutral: 'bg-blue-100',
+    gradient: 'bg-gradient-to-br from-blue-100 via-blue-50 to-blue-100',
   };
 
   const paddingClasses = {
@@ -101,8 +101,8 @@ export const Card: React.FC<CardProps> = ({ children, className = '', hover = tr
 
   return (
     <div
-      className={`bg-white border border-neutral-200 rounded-xl ${paddingClasses[padding]} ${
-        hover ? 'hover:shadow-lg hover:border-neutral-300 transition-all duration-300' : ''
+      className={`bg-blue-50 border border-blue-200 rounded-xl ${paddingClasses[padding]} ${
+        hover ? 'hover:shadow-lg hover:border-blue-300 transition-all duration-300' : ''
       } ${className}`}
     >
       {children}
@@ -182,7 +182,7 @@ export const CTABlock: React.FC<CTABlockProps> = ({
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
             onClick={primaryAction.onClick}
-            className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
           >
             {primaryAction.label}
           </button>
