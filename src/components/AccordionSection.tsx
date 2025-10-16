@@ -43,7 +43,7 @@ export function AccordionSection() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-blue-50 rounded-xl shadow-md border border-blue-200 overflow-hidden"
+              className="bg-white rounded-xl shadow-md border border-blue-200 overflow-hidden"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}

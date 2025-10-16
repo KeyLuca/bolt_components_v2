@@ -37,13 +37,13 @@ export function KPISection() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-slate-900">
+    <section className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white mb-4">
+          <h2 className="text-4xl font-bold text-slate-900 mb-4">
             Real-Time Performance
           </h2>
-          <p className="text-lg text-slate-300">
+          <p className="text-lg text-slate-600">
             Track your key metrics at a glance
           </p>
         </div>
@@ -61,21 +61,21 @@ export function KPISection() {
             return (
               <div
                 key={index}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all hover:scale-105"
+                className="bg-white backdrop-blur-sm border border-blue-200 rounded-2xl p-6 hover:bg-gray-50 transition-all hover:scale-105"
               >
                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${colorClasses[kpi.color as keyof typeof colorClasses]} flex items-center justify-center mb-4`}>
                   <Icon className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-sm font-medium text-slate-300 mb-2">
+                <div className="text-sm font-medium text-slate-600 mb-2">
                   {kpi.label}
                 </div>
-                <div className="text-3xl font-bold text-white mb-2">
+                <div className="text-3xl font-bold text-slate-900 mb-2">
                   {kpi.value}
                 </div>
                 <div className="flex items-center gap-1 text-sm text-emerald-400">
                   <TrendingUp className="w-4 h-4" />
                   <span className="font-medium">{kpi.change}</span>
-                  <span className="text-slate-400">vs last month</span>
+                  <span className="text-slate-600">vs last month</span>
                 </div>
               </div>
             );

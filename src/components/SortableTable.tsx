@@ -60,7 +60,7 @@ export function SortableTable() {
   };
 
   return (
-    <section className="py-24 px-6 bg-blue-50">
+    <section className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-slate-900 mb-4">
@@ -71,14 +71,14 @@ export function SortableTable() {
           </p>
         </div>
 
-        <div className="bg-blue-50 rounded-xl shadow-xl border border-blue-200 overflow-hidden">
+        <div className="bg-white rounded-xl shadow-xl border border-blue-200 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-blue-50 border-b border-blue-200">
+              <thead className="bg-white border-b border-blue-200">
                 <tr>
                   <th
                     onClick={() => handleSort('name')}
-                    className="px-6 py-4 text-left font-semibold text-blue-900 cursor-pointer hover:bg-blue-100 transition-colors"
+                    className="px-6 py-4 text-left font-semibold text-blue-900 cursor-pointer hover:bg-gray-100 transition-colors"
                   >
                     <div className="flex items-center gap-2">
                       Project Name
@@ -87,7 +87,7 @@ export function SortableTable() {
                   </th>
                   <th
                     onClick={() => handleSort('status')}
-                    className="px-6 py-4 text-left font-semibold text-blue-900 cursor-pointer hover:bg-blue-100 transition-colors"
+                    className="px-6 py-4 text-left font-semibold text-blue-900 cursor-pointer hover:bg-gray-100 transition-colors"
                   >
                     <div className="flex items-center gap-2">
                       Status
@@ -96,7 +96,7 @@ export function SortableTable() {
                   </th>
                   <th
                     onClick={() => handleSort('users')}
-                    className="px-6 py-4 text-right font-semibold text-blue-900 cursor-pointer hover:bg-blue-100 transition-colors"
+                    className="px-6 py-4 text-right font-semibold text-blue-900 cursor-pointer hover:bg-gray-100 transition-colors"
                   >
                     <div className="flex items-center justify-end gap-2">
                       Users
@@ -105,7 +105,7 @@ export function SortableTable() {
                   </th>
                   <th
                     onClick={() => handleSort('revenue')}
-                    className="px-6 py-4 text-right font-semibold text-slate-700 cursor-pointer hover:bg-slate-100 transition-colors"
+                    className="px-6 py-4 text-right font-semibold text-slate-700 cursor-pointer hover:bg-gray-100 transition-colors"
                   >
                     <div className="flex items-center justify-end gap-2">
                       Revenue
@@ -114,7 +114,7 @@ export function SortableTable() {
                   </th>
                   <th
                     onClick={() => handleSort('growth')}
-                    className="px-6 py-4 text-right font-semibold text-slate-700 cursor-pointer hover:bg-slate-100 transition-colors"
+                    className="px-6 py-4 text-right font-semibold text-slate-700 cursor-pointer hover:bg-gray-100 transition-colors"
                   >
                     <div className="flex items-center justify-end gap-2">
                       Growth
@@ -125,13 +125,13 @@ export function SortableTable() {
               </thead>
               <tbody className="divide-y divide-slate-200">
                 {paginatedData.map((row, index) => (
-                  <tr key={index} className="hover:bg-blue-50 transition-colors">
+                  <tr key={index} className="hover:bg-white transition-colors">
                     <td className="px-6 py-4 font-medium text-slate-900">{row.name}</td>
                     <td className="px-6 py-4">
                       <span className={`inline-flex px-3 py-1 rounded-full text-sm font-medium ${
-                        row.status === 'Active' ? 'bg-emerald-100 text-emerald-700' :
-                        row.status === 'Pending' ? 'bg-amber-100 text-amber-700' :
-                        'bg-slate-100 text-slate-700'
+                        row.status === 'Active' ? 'bg-white text-emerald-700' :
+                        row.status === 'Pending' ? 'bg-white text-amber-700' :
+                        'bg-white text-slate-700'
                       }`}>
                         {row.status}
                       </span>
@@ -145,7 +145,7 @@ export function SortableTable() {
             </table>
           </div>
 
-          <div className="bg-blue-50 px-6 py-4 border-t border-blue-200 flex items-center justify-between">
+          <div className="bg-white px-6 py-4 border-t border-blue-200 flex items-center justify-between">
             <div className="text-sm text-slate-600">
               Showing {(currentPage - 1) * itemsPerPage + 1} to {Math.min(currentPage * itemsPerPage, sortedData.length)} of {sortedData.length} entries
             </div>
@@ -153,7 +153,7 @@ export function SortableTable() {
               <button
                 onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                 disabled={currentPage === 1}
-                className="px-4 py-2 border border-blue-300 rounded-lg text-blue-900 hover:bg-blue-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="px-4 py-2 border border-blue-300 rounded-lg text-blue-900 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 Previous
               </button>
@@ -163,8 +163,8 @@ export function SortableTable() {
                   onClick={() => setCurrentPage(page)}
                   className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                     currentPage === page
-                      ? 'bg-blue-600 text-white'
-                       : 'border border-blue-300 text-blue-900 hover:bg-blue-100'
+                      ? 'bg-white text-black'
+                       : 'border border-blue-300 text-blue-900 hover:bg-gray-100'
                   }`}
                 >
                   {page}

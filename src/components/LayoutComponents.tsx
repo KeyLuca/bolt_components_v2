@@ -26,7 +26,7 @@ export const Container: React.FC<ContainerProps> = ({ children, className = '', 
 interface SectionProps {
   children: React.ReactNode;
   className?: string;
-  background?: 'white' | 'neutral' | 'gradient';
+  background?: 'white' | 'neutral' | 'gradient' | 'transparent';
   padding?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
@@ -37,9 +37,10 @@ export const Section: React.FC<SectionProps> = ({
   padding = 'lg',
 }) => {
   const backgroundClasses = {
-    white: 'bg-blue-50',
-    neutral: 'bg-blue-100',
-    gradient: 'bg-gradient-to-br from-blue-100 via-blue-50 to-blue-100',
+    white: 'bg-white',
+    neutral: 'bg-gray-100',
+    gradient: 'bg-white',
+    transparent: '',
   };
 
   const paddingClasses = {
@@ -101,7 +102,7 @@ export const Card: React.FC<CardProps> = ({ children, className = '', hover = tr
 
   return (
     <div
-      className={`bg-blue-50 border border-blue-200 rounded-xl ${paddingClasses[padding]} ${
+      className={`border border-blue-200 rounded-xl ${paddingClasses[padding]} ${
         hover ? 'hover:shadow-lg hover:border-blue-300 transition-all duration-300' : ''
       } ${className}`}
     >
@@ -171,25 +172,25 @@ export const CTABlock: React.FC<CTABlockProps> = ({
 }) => {
   const backgroundClasses =
     background === 'gradient'
-      ? 'bg-gradient-to-r from-blue-600 to-blue-800'
+      ? 'bg-white'
       : 'bg-blue-600';
 
   return (
-    <div className={`${backgroundClasses} rounded-2xl p-8 md:p-12 text-white`}>
+    <div className={`${backgroundClasses} rounded-2xl p-8 md:p-12 text-slate-900`}>
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
-        <p className="text-lg text-blue-100 mb-8">{description}</p>
+        <p className="text-lg text-slate-600 mb-8">{description}</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
             onClick={primaryAction.onClick}
-            className="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="px-8 py-4 bg-white text-black rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
           >
             {primaryAction.label}
           </button>
           {secondaryAction && (
             <button
               onClick={secondaryAction.onClick}
-              className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-colors duration-200"
+              className="px-8 py-4 bg-transparent border-2 border-slate-900 text-slate-900 rounded-lg font-semibold hover:bg-slate-900/10 transition-colors duration-200"
             >
               {secondaryAction.label}
             </button>

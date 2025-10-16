@@ -27,7 +27,7 @@ export function KeyValueSection() {
             {specs.map((spec, index) => (
               <div
                 key={index}
-                className="grid grid-cols-2 hover:bg-slate-50 transition-colors"
+                className="grid grid-cols-2 hover:bg-gray-100 transition-colors"
               >
                 <div className="px-8 py-5 font-semibold text-slate-700">
                   {spec.key}

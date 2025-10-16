@@ -13,18 +13,7 @@ import {
   FormLoading,
 } from './components/FormComponents';
 import { Tooltip, Popover, CommandPalette, useCommandPalette } from './components/MicroInteractions';
-import {
-  SkeletonLoader,
-  CardSkeletonLoader,
-  EmptyState,
-  ErrorState,
-  OfflineState,
-  LoadingSpinner,
-  SearchEmptyState,
-  ProgressBar,
-} from './components/LoadingStates';
 import { ImageGallery, BeforeAfterSlider, VideoPlayer } from './components/MediaComponents';
-import { Hero } from './components/Hero';
 import { Banner } from './components/Banner';
 import { Modal } from './components/Modal';
 import { Drawer } from './components/Drawer';
@@ -36,8 +25,6 @@ import { SortableTable } from './components/SortableTable';
 import { PricingCards } from './components/PricingCards';
 import { TabSection } from './components/TabSection';
 import { StandortSection } from './components/StandortSection';
-import { SearchAndFilters } from './components/SearchAndFilters';
-import { TableOfContents } from './components/TableOfContents';
 import { TextAnimations } from './components/TextAnimations';
 import { KPISection } from './components/KPISection';
 import { KeyValueSection } from './components/KeyValueSection';
@@ -46,7 +33,6 @@ import { MediaSplit } from './components/MediaSplit';
 
 const App: React.FC = () => {
   const [formState, setFormState] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [showLoadingDemo, setShowLoadingDemo] = useState<'skeleton' | 'empty' | 'error' | 'offline' | null>(null);
   const { isOpen: commandPaletteOpen, close: closeCommandPalette } = useCommandPalette();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -75,21 +61,21 @@ const App: React.FC = () => {
       title: 'Advanced Analytics',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.',
       stats: '2.5M+',
-      color: 'bg-blue-500',
+      color: 'bg-white',
     },
     {
       icon: Users,
       title: 'Team Collaboration',
       description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.',
       stats: '50K+',
-      color: 'bg-green-500',
+      color: 'bg-white',
     },
     {
       icon: Award,
       title: 'Premium Quality',
       description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.',
       stats: '99.9%',
-      color: 'bg-amber-500',
+      color: 'bg-white',
     },
   ];
 
@@ -122,7 +108,7 @@ const App: React.FC = () => {
       <Banner message="Welcome to our component showcase! Explore all the amazing UI components." onClose={() => {}} />
       <CommandPalette isOpen={commandPaletteOpen} onClose={closeCommandPalette} />
 
-      <Section background="gradient" padding="xl">
+      <Section background="transparent" padding="xl">
         <Container>
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6 animate-in fade-in slide-in-from-top-4 duration-500">
@@ -151,13 +137,13 @@ const App: React.FC = () => {
         </Container>
       </Section>
 
-      <Section padding="lg">
+      <Section background="transparent" padding="lg">
         <Container>
           <Grid cols={3} gap="lg">
             {features.map((feature, index) => (
-              <Card key={index} hover padding="lg" className="group">
-                <div className={`${feature.color} w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <feature.icon className="w-7 h-7 text-white" />
+              <Card key={index} hover padding="lg" className="group bg-transparent">
+                <div className={`${feature.color} w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border border-blue-200`}>
+                  <feature.icon className="w-7 h-7 text-blue-600" />
                 </div>
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-xl font-bold text-neutral-900">{feature.title}</h3>
@@ -175,11 +161,11 @@ const App: React.FC = () => {
         </Container>
       </Section>
 
-      <Section background="neutral" padding="lg">
+      <Section background="transparent" padding="lg">
         <Container>
           <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">Form Components</h2>
           <div className="max-w-2xl mx-auto">
-            <Card padding="lg">
+            <Card padding="lg" className="bg-white">
               {formState === 'idle' && (
                 <form onSubmit={handleFormSubmit} className="space-y-6">
                   <HoneypotField />
@@ -244,7 +230,7 @@ const App: React.FC = () => {
         />
       )}
 
-      <Section padding="lg">
+      <Section background="transparent" padding="lg">
         <Container>
           <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">Before & After Comparison</h2>
           <div className="max-w-4xl mx-auto">
@@ -258,14 +244,14 @@ const App: React.FC = () => {
         </Container>
       </Section>
 
-      <Section padding="lg">
+      <Section background="transparent" padding="lg">
         <Container>
           <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">Pricing & Features</h2>
           <PricingCards />
         </Container>
       </Section>
 
-      <Section padding="lg">
+      <Section background="transparent" padding="lg">
         <Container>
           <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">Tabs & Accordions</h2>
           <div className="space-y-12">
@@ -277,7 +263,7 @@ const App: React.FC = () => {
 
       <StandortSection />
 
-      <Section background="neutral" padding="lg">
+      <Section background="transparent" padding="lg">
         <Container>
           <h2 className="text-3xl font-bold text-neutral-900 mb-4 text-center">Image Gallery</h2>
           <p className="text-neutral-600 text-center mb-8">Click any image to open the lightbox viewer</p>
@@ -285,88 +271,8 @@ const App: React.FC = () => {
         </Container>
       </Section>
 
-      <Hero onModalOpen={() => setIsModalOpen(true)} onDrawerOpen={() => setIsDrawerOpen(true)} />
 
-      <Section padding="lg">
-        <Container>
-          <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">Loading States</h2>
-          <div className="flex items-center justify-center gap-4 mb-8 flex-wrap">
-            <button
-              onClick={() => setShowLoadingDemo('skeleton')}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
-            >
-              Show Skeleton
-            </button>
-            <button
-              onClick={() => setShowLoadingDemo('empty')}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
-            >
-              Show Empty State
-            </button>
-            <button
-              onClick={() => setShowLoadingDemo('error')}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
-            >
-              Show Error State
-            </button>
-            <button
-              onClick={() => setShowLoadingDemo('offline')}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
-            >
-              Show Offline State
-            </button>
-          </div>
-
-          <Grid cols={2} gap="lg">
-            <Card padding="lg">
-              <h3 className="text-lg font-semibold mb-4">Skeleton Loader</h3>
-              {showLoadingDemo === 'skeleton' ? <SkeletonLoader /> : <CardSkeletonLoader />}
-            </Card>
-            <Card padding="lg">
-              <h3 className="text-lg font-semibold mb-4">Progress Indicators</h3>
-              <Stack spacing="lg">
-                <ProgressBar value={75} label="Upload Progress" />
-                <ProgressBar value={45} label="Processing" />
-                <LoadingSpinner text="Loading data..." />
-              </Stack>
-            </Card>
-          </Grid>
-
-          {showLoadingDemo === 'empty' && (
-            <div className="mt-8">
-              <Card>
-                <EmptyState
-                  title="No items found"
-                  description="There are no items to display at the moment. Try creating a new item to get started."
-                  actionLabel="Create Item"
-                  onAction={() => setShowLoadingDemo(null)}
-                />
-              </Card>
-            </div>
-          )}
-
-          {showLoadingDemo === 'error' && (
-            <div className="mt-8">
-              <Card>
-                <ErrorState
-                  message="Unable to load the requested data. Please try again later."
-                  onRetry={() => setShowLoadingDemo(null)}
-                />
-              </Card>
-            </div>
-          )}
-
-          {showLoadingDemo === 'offline' && (
-            <div className="mt-8">
-              <Card>
-                <OfflineState onRetry={() => setShowLoadingDemo(null)} />
-              </Card>
-            </div>
-          )}
-        </Container>
-      </Section>
-
-      <Section background="neutral" padding="lg">
+      <Section background="transparent" padding="lg">
         <Container>
           <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">Testimonials</h2>
           <Grid cols={3} gap="lg">
@@ -400,7 +306,7 @@ const App: React.FC = () => {
         </Container>
       </Section>
 
-      <Section padding="lg">
+      <Section background="transparent" padding="lg">
         <Container>
           <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">Data Display Components</h2>
           <div className="space-y-12">
@@ -410,50 +316,8 @@ const App: React.FC = () => {
         </Container>
       </Section>
 
-      <Section padding="lg">
-        <Container>
-          <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">Micro-Interactions</h2>
-          <Grid cols={3} gap="lg">
-            <Card padding="lg" className="text-center">
-              <h3 className="text-lg font-semibold mb-4">Tooltip</h3>
-              <Tooltip content="This is helpful information!">
-                <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                  Hover Me
-                </button>
-              </Tooltip>
-            </Card>
 
-            <Card padding="lg" className="text-center">
-              <h3 className="text-lg font-semibold mb-4">Popover</h3>
-              <Popover
-                trigger={
-                  <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                    Click Me
-                  </button>
-                }
-              >
-                <Stack spacing="sm">
-                  <h4 className="font-semibold">Popover Content</h4>
-                  <p className="text-sm text-neutral-600">Lorem ipsum dolor sit amet consectetur.</p>
-                  <button className="px-4 py-2 bg-blue-600 text-white rounded text-sm hover:bg-blue-700 transition-colors">
-                    Action
-                  </button>
-                </Stack>
-              </Popover>
-            </Card>
-
-            <Card padding="lg" className="text-center">
-              <h3 className="text-lg font-semibold mb-4">Command Palette</h3>
-              <p className="text-sm text-neutral-600 mb-3">Press ⌘K or Ctrl+K</p>
-              <kbd className="px-3 py-2 bg-neutral-100 border border-neutral-300 rounded font-mono text-sm">
-                ⌘K
-              </kbd>
-            </Card>
-          </Grid>
-        </Container>
-      </Section>
-
-      <Section background="gradient" padding="lg">
+      <Section background="transparent" padding="lg">
         <Container>
           <CTABlock
             title="Ready to get started?"
@@ -470,7 +334,7 @@ const App: React.FC = () => {
         </Container>
       </Section>
 
-      <Section padding="lg">
+      <Section background="transparent" padding="lg">
         <Container>
           <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">Analytics & Data</h2>
           <div className="space-y-12">
@@ -480,24 +344,15 @@ const App: React.FC = () => {
         </Container>
       </Section>
 
-      <Section padding="lg">
-        <Container>
-          <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">Search & Navigation</h2>
-          <div className="space-y-12">
-            <SearchAndFilters />
-            <TableOfContents />
-          </div>
-        </Container>
-      </Section>
 
-      <Section padding="lg">
+      <Section background="transparent" padding="lg">
         <Container>
           <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">Text Animations</h2>
           <TextAnimations />
         </Container>
       </Section>
 
-      <Section background="neutral" padding="md">
+      <Section background="transparent" padding="md">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>

@@ -88,7 +88,7 @@ export function ItemList() {
             return (
               <div
                 key={index}
-                className="bg-blue-50 border border-blue-200 rounded-xl p-6 hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer"
+                className="bg-white border border-blue-200 rounded-xl p-6 hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer"
               >
                 <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${colorClasses[item.color as keyof typeof colorClasses]} flex items-center justify-center mb-4`}>
                   <Icon className="w-7 h-7 text-white" />

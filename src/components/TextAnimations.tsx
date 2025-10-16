@@ -77,7 +77,7 @@ export function TextAnimations() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 bg-white">
+    <section ref={sectionRef} className="py-24 px-6">
       <div className="max-w-6xl mx-auto space-y-24">
         <div className="text-center space-y-8">
           <h2 className="text-5xl font-bold text-slate-900 min-h-[120px]">
@@ -113,32 +113,32 @@ export function TextAnimations() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center p-8 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl">
+          <div className="text-center p-8 bg-white rounded-2xl">
             <div className="text-5xl font-bold text-blue-600 mb-2">
               {counts.users.toLocaleString()}+
             </div>
             <div className="text-slate-600 font-medium">Active Users</div>
           </div>
-          <div className="text-center p-8 bg-gradient-to-br from-cyan-50 to-teal-50 rounded-2xl">
-            <div className="text-5xl font-bold text-cyan-600 mb-2">
+          <div className="text-center p-8 bg-white rounded-2xl">
+            <div className="text-5xl font-bold text-blue-600 mb-2">
               {counts.projects.toLocaleString()}+
             </div>
             <div className="text-slate-600 font-medium">Projects Completed</div>
           </div>
-          <div className="text-center p-8 bg-gradient-to-br from-teal-50 to-emerald-50 rounded-2xl">
-            <div className="text-5xl font-bold text-teal-600 mb-2">
+          <div className="text-center p-8 bg-white rounded-2xl">
+            <div className="text-5xl font-bold text-blue-600 mb-2">
               ${counts.revenue.toLocaleString()}K
             </div>
             <div className="text-slate-600 font-medium">Revenue Generated</div>
           </div>
         </div>
 
-        <div className="overflow-hidden bg-slate-900 py-8 rounded-2xl">
+        <div className="overflow-hidden bg-white py-8 rounded-2xl">
           <div className="flex gap-8 animate-[marquee_30s_linear_infinite]">
             {[...Array(2)].map((_, setIndex) => (
               <div key={setIndex} className="flex gap-8 shrink-0">
                 {['Innovation', 'Quality', 'Performance', 'Security', 'Scalability', 'Reliability'].map((tag, i) => (
-                  <div key={i} className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-lg text-white font-medium whitespace-nowrap">
+                  <div key={i} className="px-6 py-3 bg-blue-50 backdrop-blur-sm rounded-lg text-blue-600 font-medium whitespace-nowrap">
                     {tag}
                   </div>
                 ))}

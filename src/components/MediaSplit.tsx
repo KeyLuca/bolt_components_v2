@@ -37,14 +37,14 @@ export function MediaSplit() {
             </ul>
           </div>
           <div className="relative">
-            <div className="aspect-square bg-gradient-to-br from-blue-400 to-cyan-500 rounded-3xl shadow-2xl"></div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-teal-400 rounded-2xl shadow-lg"></div>
+            <div className="aspect-square bg-white rounded-3xl shadow-2xl"></div>
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-white rounded-2xl shadow-lg"></div>
           </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1 relative">
-            <div className="aspect-video bg-gradient-to-br from-teal-400 to-emerald-500 rounded-3xl shadow-2xl flex items-center justify-center">
+            <div className="aspect-video bg-white rounded-3xl shadow-2xl flex items-center justify-center">
               <div className="w-20 h-20 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center">
                 <div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-white border-b-8 border-b-transparent ml-1"></div>
               </div>
@@ -60,7 +60,7 @@ export function MediaSplit() {
             <p className="text-slate-600">
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
             </p>
-            <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+            <button className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
               Watch Demo
             </button>
           </div>

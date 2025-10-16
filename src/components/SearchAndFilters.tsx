@@ -92,7 +92,7 @@ export function SearchAndFilters() {
                       setSearchQuery(suggestion);
                       setSuggestions([]);
                     }}
-                    className="w-full px-4 py-3 text-left hover:bg-slate-50 transition-colors border-b border-slate-100 last:border-b-0"
+                    className="w-full px-4 py-3 text-left hover:bg-white transition-colors border-b border-slate-100 last:border-b-0"
                   >
                     <div className="flex items-center gap-3">
                       <Search className="w-4 h-4 text-slate-400" />
@@ -129,7 +129,7 @@ export function SearchAndFilters() {
           </div>
 
           {(searchQuery || selectedFilters.length > 0) && (
-            <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
+            <div className="bg-white border border-blue-200 rounded-xl p-6">
               <div className="text-sm font-semibold text-slate-700 mb-2">
                 Active filters:
               </div>

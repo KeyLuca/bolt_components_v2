@@ -32,7 +32,7 @@ export function TabSection() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-blue-50">
+    <section className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-slate-900 mb-4">
@@ -64,7 +64,7 @@ export function TabSection() {
           })}
         </div>
 
-        <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-12 min-h-[300px]">
+        <div className="bg-white rounded-2xl p-12 min-h-[300px]">
           <h3 className="text-3xl font-bold text-slate-900 mb-4">
             {tabs[activeTab].title}
           </h3>

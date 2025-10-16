@@ -5,16 +5,16 @@ export const SkeletonLoader: React.FC = () => {
   return (
     <div className="space-y-4 animate-pulse">
       <div className="flex items-center space-x-4">
-        <div className="w-12 h-12 bg-neutral-200 rounded-full" />
+        <div className="w-12 h-12 bg-white rounded-full" />
         <div className="flex-1 space-y-2">
-          <div className="h-4 bg-neutral-200 rounded w-3/4" />
-          <div className="h-3 bg-neutral-200 rounded w-1/2" />
+          <div className="h-4 bg-white rounded w-3/4" />
+          <div className="h-3 bg-white rounded w-1/2" />
         </div>
       </div>
       <div className="space-y-2">
-        <div className="h-4 bg-neutral-200 rounded" />
-        <div className="h-4 bg-neutral-200 rounded w-5/6" />
-        <div className="h-4 bg-neutral-200 rounded w-4/6" />
+        <div className="h-4 bg-white rounded" />
+        <div className="h-4 bg-white rounded w-5/6" />
+        <div className="h-4 bg-white rounded w-4/6" />
       </div>
     </div>
   );
@@ -22,7 +22,7 @@ export const SkeletonLoader: React.FC = () => {
 
 export const CardSkeletonLoader: React.FC = () => {
   return (
-    <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 animate-pulse">
+    <div className="bg-white border border-blue-200 rounded-xl p-6 animate-pulse">
       <div className="w-full h-48 bg-neutral-200 rounded-lg mb-4" />
       <div className="h-6 bg-neutral-200 rounded w-3/4 mb-3" />
       <div className="space-y-2">
@@ -54,7 +54,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
 }) => {
   return (
     <div className="flex flex-col items-center justify-center py-16 px-4">
-      <div className="w-16 h-16 bg-neutral-100 rounded-full flex items-center justify-center mb-4">
+      <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4">
         <Icon className="w-8 h-8 text-neutral-400" />
       </div>
       <h3 className="text-xl font-semibold text-neutral-900 mb-2">{title}</h3>
@@ -62,7 +62,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
       {actionLabel && onAction && (
         <button
           onClick={onAction}
-          className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium"
+          className="px-6 py-3 bg-white text-black rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium"
         >
           {actionLabel}
         </button>
@@ -84,7 +84,7 @@ export const ErrorState: React.FC<ErrorStateProps> = ({
 }) => {
   return (
     <div className="flex flex-col items-center justify-center py-16 px-4">
-      <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+      <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4">
         <AlertTriangle className="w-8 h-8 text-red-600" />
       </div>
       <h3 className="text-xl font-semibold text-neutral-900 mb-2">{title}</h3>
@@ -92,7 +92,7 @@ export const ErrorState: React.FC<ErrorStateProps> = ({
       {onRetry && (
         <button
           onClick={onRetry}
-          className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium"
+          className="px-6 py-3 bg-white text-black rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium"
         >
           Try Again
         </button>
@@ -108,7 +108,7 @@ interface OfflineStateProps {
 export const OfflineState: React.FC<OfflineStateProps> = ({ onRetry }) => {
   return (
     <div className="flex flex-col items-center justify-center py-16 px-4">
-      <div className="w-16 h-16 bg-neutral-100 rounded-full flex items-center justify-center mb-4">
+      <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4">
         <WifiOff className="w-8 h-8 text-neutral-400" />
       </div>
       <h3 className="text-xl font-semibold text-neutral-900 mb-2">No internet connection</h3>
@@ -118,7 +118,7 @@ export const OfflineState: React.FC<OfflineStateProps> = ({ onRetry }) => {
       {onRetry && (
         <button
           onClick={onRetry}
-          className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium"
+          className="px-6 py-3 bg-white text-black rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium"
         >
           Retry
         </button>
@@ -180,7 +180,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
           {showPercentage && <span className="text-sm text-neutral-600">{percentage}%</span>}
         </div>
       )}
-      <div className="w-full h-2 bg-neutral-200 rounded-full overflow-hidden">
+      <div className="w-full h-2 bg-white rounded-full overflow-hidden">
         <div
           className="h-full bg-blue-600 rounded-full transition-all duration-300 ease-out"
           style={{ width: `${percentage}%` }}

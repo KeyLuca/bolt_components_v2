@@ -54,7 +54,7 @@ export function FormSection({ onToast }: FormSectionProps) {
   };
 
   return (
-    <section className="py-24 px-6 bg-white">
+    <section className="py-24 px-6">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-slate-900 mb-4">
@@ -65,7 +65,7 @@ export function FormSection({ onToast }: FormSectionProps) {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-slate-50 rounded-2xl p-8 space-y-6 border border-slate-200">
+        <form onSubmit={handleSubmit} className="bg-blue-50 rounded-2xl p-8 space-y-6 border border-slate-200">
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-semibold text-slate-700 mb-2">
@@ -207,7 +207,7 @@ export function FormSection({ onToast }: FormSectionProps) {
             <button
               type="submit"
               disabled={isLoading}
-              className="flex-1 bg-blue-600 text-white py-4 rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex-1 bg-white text-black py-4 rounded-lg font-semibold hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               {isLoading ? 'Submitting...' : 'Submit Form'}
             </button>
@@ -224,7 +224,7 @@ export function FormSection({ onToast }: FormSectionProps) {
                   file: null
                 });
               }}
-              className="px-8 py-4 border border-slate-300 rounded-lg font-semibold text-slate-700 hover:bg-slate-100 transition-colors"
+              className="px-8 py-4 border border-slate-300 rounded-lg font-semibold text-slate-700 hover:bg-gray-100 transition-colors"
             >
               Reset
             </button>

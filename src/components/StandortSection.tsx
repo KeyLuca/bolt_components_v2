@@ -47,7 +47,7 @@ export function StandortSection() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-blue-50">
+    <section className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-slate-900 mb-4">
@@ -80,15 +80,15 @@ export function StandortSection() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-4 mb-8">
-          <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3">
+          <div className="bg-white backdrop-blur-sm rounded-lg p-3">
             <h4 className="font-semibold text-slate-900 mb-1 text-sm">Adresse</h4>
             <p className="text-slate-600 text-xs">{locations[activeTab].address}</p>
           </div>
-          <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3">
+          <div className="bg-white backdrop-blur-sm rounded-lg p-3">
             <h4 className="font-semibold text-slate-900 mb-1 text-sm">Telefon</h4>
             <p className="text-slate-600 text-xs font-medium">{locations[activeTab].phone}</p>
           </div>
-          <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3">
+          <div className="bg-white backdrop-blur-sm rounded-lg p-3">
             <h4 className="font-semibold text-slate-900 mb-1 text-sm">Öffnungszeiten</h4>
             <p className="text-slate-600 text-xs">{locations[activeTab].hours}</p>
           </div>
@@ -96,7 +96,7 @@ export function StandortSection() {
 
         {/* Google Maps Integration */}
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-          <div className="h-96 bg-slate-100 flex items-center justify-center">
+          <div className="h-96 bg-white flex items-center justify-center">
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
@@ -107,7 +107,7 @@ export function StandortSection() {
               <p className="text-slate-500 text-sm mt-1">
                 Hier würde die Google Maps Karte für {locations[activeTab].label} angezeigt werden
               </p>
-              <button className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+              <button className="mt-4 px-6 py-2 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors">
                 Route planen
               </button>
             </div>

@@ -25,16 +25,16 @@ export function TableOfContents() {
   };
 
   return (
-    <section className="py-24 px-6 bg-slate-900">
+    <section className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 mb-4">
             <List className="w-8 h-8 text-blue-400" />
-            <h2 className="text-4xl font-bold text-white">
+            <h2 className="text-4xl font-bold text-slate-900">
               Page Navigation
             </h2>
           </div>
-          <p className="text-lg text-slate-300">
+          <p className="text-lg text-slate-600">
             Quick links to all sections
           </p>
         </div>
@@ -46,11 +46,11 @@ export function TableOfContents() {
               onClick={() => scrollToSection(section.id)}
               className={`px-6 py-4 rounded-lg font-medium text-left transition-all ${
                 activeSection === section.id
-                  ? 'bg-blue-600 text-white shadow-lg scale-105'
-                  : 'bg-white/10 text-slate-200 hover:bg-white/20'
+                  ? 'bg-white text-black shadow-lg scale-105'
+                  : 'bg-white/10 text-slate-700 hover:bg-white/20'
               }`}
             >
-              <span className="text-sm text-slate-400 mr-2">
+              <span className="text-sm text-slate-600 mr-2">
                 {String(index + 1).padStart(2, '0')}
               </span>
               {section.label}
@@ -61,18 +61,18 @@ export function TableOfContents() {
         <div className="mt-12 text-center">
           <div className="inline-flex items-center gap-8 bg-white/10 backdrop-blur-sm px-8 py-4 rounded-full">
             <div className="text-center">
-              <div className="text-3xl font-bold text-white">13</div>
-              <div className="text-sm text-slate-300">Sections</div>
+              <div className="text-3xl font-bold text-slate-900">13</div>
+              <div className="text-sm text-slate-600">Sections</div>
             </div>
             <div className="w-px h-12 bg-white/20"></div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-white">40+</div>
-              <div className="text-sm text-slate-300">Components</div>
+              <div className="text-3xl font-bold text-slate-900">40+</div>
+              <div className="text-sm text-slate-600">Components</div>
             </div>
             <div className="w-px h-12 bg-white/20"></div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-white">100%</div>
-              <div className="text-sm text-slate-300">Interactive</div>
+              <div className="text-3xl font-bold text-slate-900">100%</div>
+              <div className="text-sm text-slate-600">Interactive</div>
             </div>
           </div>
         </div>

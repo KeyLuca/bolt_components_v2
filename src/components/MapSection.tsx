@@ -23,7 +23,7 @@ export function MapSection() {
           {locations.map((location, index) => (
             <div
               key={index}
-              className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow"
+              className="bg-blue-50 border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow"
             >
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                 <MapPin className="w-6 h-6 text-blue-600" />
@@ -37,7 +37,7 @@ export function MapSection() {
           ))}
         </div>
 
-        <div className="bg-gradient-to-br from-blue-200 via-cyan-200 to-teal-200 rounded-2xl h-96 relative overflow-hidden shadow-xl">
+        <div className="bg-blue-50 rounded-2xl h-96 relative overflow-hidden shadow-xl">
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center space-y-2">
               <MapPin className="w-16 h-16 text-slate-700 mx-auto mb-4" />

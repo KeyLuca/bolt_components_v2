@@ -38,7 +38,7 @@ export const Select: React.FC<SelectProps> = ({ label, options, value, onChange,
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full px-4 py-2.5 text-left bg-blue-50 border rounded-lg transition-all duration-200 flex items-center justify-between hover:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+        className={`w-full px-4 py-2.5 text-left bg-white border rounded-lg transition-all duration-200 flex items-center justify-between hover:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
           error ? 'border-red-400' : 'border-blue-300'
         }`}
       >
@@ -47,14 +47,14 @@ export const Select: React.FC<SelectProps> = ({ label, options, value, onChange,
       </button>
 
       {isOpen && (
-        <div className="absolute z-50 w-full mt-2 bg-blue-50 border border-blue-200 rounded-lg shadow-lg max-h-60 overflow-auto animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="absolute z-50 w-full mt-2 bg-white border border-blue-200 rounded-lg shadow-lg max-h-60 overflow-auto animate-in fade-in slide-in-from-top-2 duration-200">
           {options.map(option => (
             <button
               key={option.value}
               type="button"
               onClick={() => handleSelect(option.value)}
-              className={`w-full px-4 py-2.5 text-left hover:bg-blue-100 transition-colors flex items-center justify-between ${
-                selected === option.value ? 'bg-blue-100 text-blue-700' : 'text-neutral-700'
+              className={`w-full px-4 py-2.5 text-left hover:bg-gray-100 transition-colors flex items-center justify-between ${
+                selected === option.value ? 'bg-gray-100 text-blue-700' : 'text-neutral-700'
               }`}
             >
               {option.label}
@@ -188,11 +188,11 @@ export const Switch: React.FC<SwitchProps> = ({ label, checked = false, onChange
         type="button"
         onClick={handleToggle}
         className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
-          isOn ? 'bg-blue-600' : 'bg-neutral-300'
+          isOn ? 'bg-blue-600' : 'bg-blue-50'
         }`}
       >
         <span
-          className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-200 ${
+          className={`inline-block h-4 w-4 transform rounded-full bg-blue-50 transition-transform duration-200 ${
             isOn ? 'translate-x-6' : 'translate-x-1'
           }`}
         />
@@ -303,7 +303,7 @@ export const FormResult: React.FC<FormResultProps> = ({ type, title, message, on
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 animate-in fade-in duration-200">
       <div className="bg-blue-50 rounded-xl shadow-2xl p-8 max-w-md w-full mx-4 animate-in zoom-in slide-in-from-bottom-4 duration-300">
         <div className={`w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4 ${
-          type === 'success' ? 'bg-green-100' : 'bg-red-100'
+          type === 'success' ? 'bg-blue-50' : 'bg-blue-50'
         }`}>
           {type === 'success' ? (
             <Check className="w-8 h-8 text-green-600" />
@@ -315,7 +315,7 @@ export const FormResult: React.FC<FormResultProps> = ({ type, title, message, on
         <p className="text-neutral-600 text-center mb-6">{message}</p>
         <button
           onClick={onClose}
-          className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium"
+          className="w-full py-3 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors duration-200 font-medium"
         >
           Close
         </button>

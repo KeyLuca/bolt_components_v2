@@ -30,14 +30,14 @@ export function Drawer({ isOpen, onClose, title }: DrawerProps) {
   return (
     <>
       <div
-        className={`fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 transition-opacity ${
+        className={`fixed inset-0 bg-white/50 backdrop-blur-sm z-40 transition-opacity ${
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={onClose}
       ></div>
 
       <div
-        className={`fixed top-0 right-0 h-full w-80 bg-blue-50 shadow-2xl z-50 transition-transform ${
+        className={`fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 transition-transform ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -45,7 +45,7 @@ export function Drawer({ isOpen, onClose, title }: DrawerProps) {
           <h3 className="text-2xl font-bold text-slate-900">{title}</h3>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-blue-100 rounded-lg transition-colors"
+            className="p-2 hover:bg-white rounded-lg transition-colors"
           >
             <X className="w-5 h-5 text-slate-600" />
           </button>
@@ -58,14 +58,14 @@ export function Drawer({ isOpen, onClose, title }: DrawerProps) {
               <button
                 key={index}
                 onClick={onClose}
-                className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-blue-100 transition-colors text-left"
+                className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white transition-colors text-left"
               >
                 <Icon className="w-5 h-5 text-slate-600" />
                 <span className="flex-1 font-medium text-slate-900">
                   {item.label}
                 </span>
                 {item.badge && (
-                  <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
+                  <span className="px-2 py-1 bg-white text-blue-700 text-xs font-semibold rounded-full">
                     {item.badge}
                   </span>
                 )}
@@ -75,7 +75,7 @@ export function Drawer({ isOpen, onClose, title }: DrawerProps) {
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-blue-200">
-          <div className="bg-blue-50 rounded-lg p-4">
+          <div className="bg-white rounded-lg p-4">
             <p className="text-sm font-semibold text-slate-900 mb-1">
               Need help?
             </p>
