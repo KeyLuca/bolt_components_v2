@@ -27,8 +27,10 @@ import { StandortSection } from './components/StandortSection';
 import { TextAnimations } from './components/TextAnimations';
 import { KPISection } from './components/KPISection';
 import { KeyValueSection } from './components/KeyValueSection';
+import { ComponentShowcase } from './pages/ComponentShowcase';
 
 const App: React.FC = () => {
+  const [showNewComponents, setShowNewComponents] = useState(false);
   const [formState, setFormState] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const { isOpen: commandPaletteOpen, close: closeCommandPalette } = useCommandPalette();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -100,9 +102,33 @@ const App: React.FC = () => {
     },
   ];
 
+  if (showNewComponents) {
+    return (
+      <div>
+        <div className="fixed top-4 right-4 z-50">
+          <button
+            onClick={() => setShowNewComponents(false)}
+            className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg"
+          >
+            Zurück zur Hauptseite
+          </button>
+        </div>
+        <ComponentShowcase />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-blue-50">
       <Banner message="Welcome to our component showcase! Explore all the amazing UI components." onClose={() => {}} />
+      <div className="fixed top-4 left-4 z-50">
+        <button
+          onClick={() => setShowNewComponents(true)}
+          className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg"
+        >
+          Neue Komponenten
+        </button>
+      </div>
       <CommandPalette isOpen={commandPaletteOpen} onClose={closeCommandPalette} />
 
       <Section background="transparent" padding="xl">

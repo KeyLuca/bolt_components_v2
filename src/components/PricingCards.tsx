@@ -1,4 +1,5 @@
 import { Check, Star } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export function PricingCards() {
   const plans = [
@@ -47,6 +48,65 @@ export function PricingCards() {
     }
   ];
 
+  const PricingCard = ({ plan, index }: { plan: typeof plans[0]; index: number }) => {
+    const { elementRef, isVisible } = useScrollReveal({ delay: index * 100 });
+
+    return (
+      <div
+        ref={elementRef as React.RefObject<HTMLDivElement>}
+        className={`relative bg-white rounded-2xl p-8 transition-all hover:scale-105 ${
+          plan.popular
+            ? 'border-2 border-blue-600 shadow-2xl'
+            : 'border border-blue-200 shadow-lg'
+        }`}
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+          transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
+        }}
+      >
+        {plan.popular && (
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
+            <Star className="w-4 h-4 fill-current" />
+            Most Popular
+          </div>
+        )}
+
+        <div className="text-center mb-8">
+          <h3 className="text-2xl font-bold text-slate-900 mb-2">
+            {plan.name}
+          </h3>
+          <p className="text-slate-600 mb-4">{plan.description}</p>
+          <div className="flex items-baseline justify-center gap-2">
+            <span className="text-5xl font-bold text-slate-900">
+              ${plan.price}
+            </span>
+            <span className="text-slate-600">/month</span>
+          </div>
+        </div>
+
+        <ul className="space-y-4 mb-8">
+          {plan.features.map((feature, featureIndex) => (
+            <li key={featureIndex} className="flex items-start gap-3">
+              <Check className="w-5 h-5 text-emerald-600 mt-0.5 shrink-0" />
+              <span className="text-slate-700">{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        <button
+          className={`w-full py-4 rounded-lg font-semibold transition-colors ${
+            plan.popular
+              ? 'bg-blue-600 text-white hover:bg-blue-700'
+              : 'bg-blue-500 text-white hover:bg-blue-600'
+          }`}
+        >
+          Get Started
+        </button>
+      </div>
+    );
+  };
+
   return (
     <section className="py-24 px-6 bg-blue-50">
       <div className="max-w-6xl mx-auto">
@@ -61,53 +121,7 @@ export function PricingCards() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
-            <div
-              key={index}
-              className={`relative bg-white rounded-2xl p-8 transition-all hover:scale-105 ${
-                plan.popular
-                  ? 'border-2 border-blue-600 shadow-2xl'
-                  : 'border border-blue-200 shadow-lg'
-              }`}
-            >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
-                  <Star className="w-4 h-4 fill-current" />
-                  Most Popular
-                </div>
-              )}
-
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">
-                  {plan.name}
-                </h3>
-                <p className="text-slate-600 mb-4">{plan.description}</p>
-                <div className="flex items-baseline justify-center gap-2">
-                  <span className="text-5xl font-bold text-slate-900">
-                    ${plan.price}
-                  </span>
-                  <span className="text-slate-600">/month</span>
-                </div>
-              </div>
-
-              <ul className="space-y-4 mb-8">
-                {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-emerald-600 mt-0.5 shrink-0" />
-                    <span className="text-slate-700">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <button
-                className={`w-full py-4 rounded-lg font-semibold transition-colors ${
-                  plan.popular
-                    ? 'bg-blue-600 text-white hover:bg-blue-700'
-                    : 'bg-blue-500 text-white hover:bg-blue-600'
-                }`}
-              >
-                Get Started
-              </button>
-            </div>
+            <PricingCard key={index} plan={plan} index={index} />
           ))}
         </div>
 
