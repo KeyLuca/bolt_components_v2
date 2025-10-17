@@ -19,7 +19,6 @@ import { Modal } from './components/Modal';
 import { Drawer } from './components/Drawer';
 import { Toast } from './components/Toast';
 import { AccordionSection } from './components/AccordionSection';
-import { FormSection } from './components/FormSection';
 import { ItemList } from './components/ItemList';
 import { SortableTable } from './components/SortableTable';
 import { PricingCards } from './components/PricingCards';
@@ -28,8 +27,6 @@ import { StandortSection } from './components/StandortSection';
 import { TextAnimations } from './components/TextAnimations';
 import { KPISection } from './components/KPISection';
 import { KeyValueSection } from './components/KeyValueSection';
-import { MapSection } from './components/MapSection';
-import { MediaSplit } from './components/MediaSplit';
 
 const App: React.FC = () => {
   const [formState, setFormState] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
