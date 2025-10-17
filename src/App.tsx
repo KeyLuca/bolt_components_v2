@@ -27,10 +27,13 @@ import { StandortSection } from './components/StandortSection';
 import { TextAnimations } from './components/TextAnimations';
 import { KPISection } from './components/KPISection';
 import { KeyValueSection } from './components/KeyValueSection';
-import { ComponentShowcase } from './pages/ComponentShowcase';
+import { HeadingScratchReveal } from './components/HeadingScratchReveal';
+import { HeadingWordMorph } from './components/HeadingWordMorph';
+import { SplitMediaText } from './components/SplitMediaText';
+import { OverlayMediaText } from './components/OverlayMediaText';
+import { FloatingImageText } from './components/FloatingImageText';
 
 const App: React.FC = () => {
-  const [showNewComponents, setShowNewComponents] = useState(false);
   const [formState, setFormState] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const { isOpen: commandPaletteOpen, close: closeCommandPalette } = useCommandPalette();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -102,33 +105,9 @@ const App: React.FC = () => {
     },
   ];
 
-  if (showNewComponents) {
-    return (
-      <div>
-        <div className="fixed top-4 right-4 z-50">
-          <button
-            onClick={() => setShowNewComponents(false)}
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg"
-          >
-            Zurück zur Hauptseite
-          </button>
-        </div>
-        <ComponentShowcase />
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-blue-50">
       <Banner message="Welcome to our component showcase! Explore all the amazing UI components." onClose={() => {}} />
-      <div className="fixed top-4 left-4 z-50">
-        <button
-          onClick={() => setShowNewComponents(true)}
-          className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg"
-        >
-          Neue Komponenten
-        </button>
-      </div>
       <CommandPalette isOpen={commandPaletteOpen} onClose={closeCommandPalette} />
 
       <Section background="transparent" padding="xl">
@@ -372,6 +351,108 @@ const App: React.FC = () => {
         <Container>
           <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">Text Animations</h2>
           <TextAnimations />
+        </Container>
+      </Section>
+
+      <Section background="transparent" padding="lg">
+        <Container>
+          <HeadingScratchReveal className="text-4xl font-bold text-neutral-900 mb-4 text-center">
+            Neue Komponenten
+          </HeadingScratchReveal>
+          <p className="text-xl text-neutral-600 text-center mb-12 max-w-3xl mx-auto">
+            Modulare und wiederverwendbare Komponenten mit Scroll-Reveal-Animationen
+          </p>
+        </Container>
+      </Section>
+
+      <Section background="transparent" padding="lg">
+        <Container>
+          <HeadingScratchReveal className="text-3xl font-bold text-neutral-900 mb-8 text-center">
+            Überschriften-Animationen
+          </HeadingScratchReveal>
+          <Grid cols={2} gap="lg">
+            <Card padding="lg" className="bg-white">
+              <h3 className="text-xl font-bold text-neutral-900 mb-4">Scratch Reveal</h3>
+              <p className="text-neutral-600 mb-6">
+                Elegante Überschriften-Animation mit Scratch/Mask-Reveal-Effekt.
+              </p>
+              <HeadingScratchReveal className="text-2xl font-bold text-blue-600" duration={1200}>
+                Diese Überschrift wird enthüllt
+              </HeadingScratchReveal>
+            </Card>
+            <Card padding="lg" className="bg-white">
+              <h3 className="text-xl font-bold text-neutral-900 mb-4">Word Morph</h3>
+              <p className="text-neutral-600 mb-6">
+                Dynamischer Wechsel zwischen verschiedenen Wörtern.
+              </p>
+              <div className="flex items-center gap-4">
+                <span className="text-xl text-neutral-700">Wir sind</span>
+                <HeadingWordMorph
+                  words={['Innovativ', 'Kreativ', 'Zuverlässig', 'Modern']}
+                  className="text-2xl font-bold text-blue-600"
+                  interval={2500}
+                />
+              </div>
+            </Card>
+          </Grid>
+        </Container>
+      </Section>
+
+      <Section background="transparent" padding="lg">
+        <Container>
+          <HeadingScratchReveal className="text-3xl font-bold text-neutral-900 mb-8 text-center">
+            Bild + Text Layouts
+          </HeadingScratchReveal>
+          <div className="space-y-12">
+            <SplitMediaText
+              imageSrc="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800"
+              imageAlt="Modern Office"
+              title="Split Media Layout"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+              imagePosition="left"
+              variant="default"
+            />
+
+            <SplitMediaText
+              imageSrc="https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=800"
+              imageAlt="Team Collaboration"
+              title="Umgekehrtes Layout"
+              description="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+              imagePosition="right"
+              variant="muted"
+            />
+
+            <OverlayMediaText
+              imageSrc="https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              imageAlt="Creative Workspace"
+              title="Overlay Text auf Bild"
+              description="Perfekt für Hero-Sections und visuelle Statements mit halbtransparentem Overlay für optimale Lesbarkeit."
+              overlayOpacity={0.5}
+              textPosition="center"
+              variant="default"
+            />
+
+            <Card padding="lg" className="bg-white">
+              <h3 className="text-2xl font-bold text-neutral-900 mb-6">Floating Image Layout</h3>
+              <FloatingImageText
+                imageSrc="https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&cs=tinysrgb&w=600"
+                imageAlt="Design Process"
+                imagePosition="left"
+                imageWidth="35%"
+                variant="card"
+              >
+                <p className="mb-4">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <p className="mb-4">
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <p>
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                </p>
+              </FloatingImageText>
+            </Card>
+          </div>
         </Container>
       </Section>
 
